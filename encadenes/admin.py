@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Crag, Route, Sector
+
+admin.site.register(Crag)
+admin.site.register(Route)
+admin.site.register(Sector)
