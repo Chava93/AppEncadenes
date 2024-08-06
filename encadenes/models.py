@@ -15,7 +15,7 @@ class Crags(models.Model):
 class Sectors(models.Model):
 	sector = models.CharField(max_length=100, unique=True)
 	crag = models.ForeignKey(Crags, on_delete=models.CASCADE)
-	total_routes = models.IntegerField()
+	total_routes = models.IntegerField(default=0)
 
 class Routes(models.Model):
 	route = models.CharField(max_length=100, unique=True)
