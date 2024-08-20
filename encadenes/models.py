@@ -4,26 +4,26 @@ from django.utils import timezone
 class Country(models.Model):
 	name = models.CharField(max_length=100, unique=True)
 	def __str__(self):
-		return self.country
+		return self.name
 
 class State(models.Model):
 	name = models.CharField(max_length=100)
 	country = models.ForeignKey(Country, on_delete=models.CASCADE)
 	def __str__(self):
-		return self.States
+		return self.name
 
 class Crag(models.Model):
 	name  = models.CharField(max_length=100, unique=True)
 	state = models.ForeignKey(State, on_delete=models.CASCADE)
 	def __str__(self):
-		return self.crag
+		return self.name
 
 class Sector(models.Model):
 	name = models.CharField(max_length=100, unique=True)
 	crag = models.ForeignKey(Crag, on_delete=models.CASCADE)
 	total_routes = models.IntegerField(default=0)
 	def __str__(self):
-		return self.sector
+		return self.name
 
 class Route(models.Model):
 	name = models.CharField(max_length=100, unique=True)
@@ -33,4 +33,4 @@ class Route(models.Model):
 	sector = models.ForeignKey(Sector, on_delete=models.CASCADE)
 	grado = models.CharField(max_length=10, default='000')
 	def __str__(self):
-		return self.route
+		return self.name
