@@ -27,6 +27,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000", 
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = [
+    'content-type',
+]
+
+
 
 # Application definition
 
@@ -39,6 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "encadenes.apps.EncadenesConfig",
     "rest_framework",
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +61,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "mysite.urls"
